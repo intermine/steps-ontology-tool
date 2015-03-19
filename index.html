@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Multimine Search Version</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/ontology-dag-tool.css">
+
+  <script charset="UTF-8"
+          data-main="index"
+          type="text/javascript"
+          src="bower_components/requirejs/require.js">
+  </script>
+
+
+  <style>[ng-cloak] { display: none; }</style>
+</head>
+
+<body ng-cloak ng-controller="DemoCtrl">
+
+  <div class="container-fluid">
+
+    <div class="row" ng-controller="SearchInputCtrl as search">
+
+      <div class="hcenteredbox">
+
+        <div class="searchbox">
+
+          <form class="navbar-form halfwidth"
+              role="search"
+              ng-submit="search.searchFor(searchTerm)">
+            <div class="input-group input-group-lg">
+              <input type="text"class="form-control"
+                     placeholder="long tail, lola*, Parkinson, MGI:96677"
+                     name="searchterm" id="searchterm" ng-model="searchTerm">
+              <div class="input-group-btn">
+                <button snap-toggle
+                        class="btn btn-default"
+                        type="submit">Search </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row" ng-show="step.data.query">
+
+      <div class="col-xs-3">
+
+        <ng-include src="'facets.html'" ng-controller="FacetCtrl as facet"></ng-include>
+
+        <div class="panel panel-default messages" ng-controller="MessagesCtrl as msgCtrl">
+          <div class="panel-heading" ng-click="msgCtrl.collapsed = !msgCtrl.collapsed">
+              <i class="fa" ng-class="{'fa-caret-right': msgCtrl.collapsed, 'fa-caret-down': !msgCtrl.collapsed}"></i>
+              {{sumAvailable}} Selected Items
+          </div>
+          <div class="panel-body">
+            <div class="list-group-item"
+                 ng-show="!msgCtrl.collapsed && data.request.ids.length"
+                 ng-repeat="(key, data) in messages.ids">
+              {{data.request.ids.length}}
+              {{data.request.type}}s at
+              <code>{{data.service.name}}</code>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xs-9">
+
+        <div ng-controller="OntologyDagCtrl" class="panel panel-default">
+
+          <div class="panel-heading" ng-controller="HeadingCtrl as heading">
+              <ng-include src="'panel-heading.html'"></ng-include>
+          </div>
+
+          <ng-include src="'template.html'"></ng-include>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "steps-ontology-tool",
+  "version": "0.0.1",
+  "authors": [
+    "Alex Kalderimis <alexkalderimis@gmail.com>"
+  ],
+  "description": "Ontology tool for steps",
+  "main": "tool.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "intermine",
+    "intermine-steps"
+  ],
+  "dependencies": {
+    "underscore": "^1.6.0",
+    "imjs": "^3.2.x",
+    "dagify": "intermine/dagify#rebirth"
+  },
+  "devDependencies": {
+    "angular": "1.2.16",
+    "requirejs": "~2.1.11",
+    "requirejs-domready": "~2.0.1",
+    "angular-ui-bootstrap-bower": "~0.11.0",
+    "pluralize": "~1.1.2",
+    "bootstrap": "~3.3.4",
+    "fontawesome": "~4.3.0",
+    "require-css": "~0.1.8"
+  },
+  "license": "LGPL",
+  "homepage": "http://staircase.herokuapp.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "steps-ontology-tool",
+  "version": "0.0.1",
+  "description": "Ontology tool for steps",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve",
+    "postinstall": "bower install --allow-root",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "serve": "^1.4.0"
+  },
+  "author": "Alex Kalderimis <alex@intermine.org>",
+  "license": "LGPL"
+}

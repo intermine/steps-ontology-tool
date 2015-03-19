@@ -1,0 +1,9 @@
+{
+    "capabilities": ["now", "provider"],
+    "type": "native",
+    "templateURI": "./template.html",
+    "controllerURI": "./js/controllers/ontology-dag",
+    "heading": "Ontology Terms",
+    "panelHeading": "./panel-heading.html",
+    "style": "./css/ontology-dag-tool.css"
+}

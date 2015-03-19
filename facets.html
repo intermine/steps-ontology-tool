@@ -1,0 +1,28 @@
+<div class="panel panel-primary facets">
+    <div class="panel-heading">Facets</div>
+
+    <div class="panel-body">
+
+        <div class="row"
+             ng-repeat="(name, facetSet) in state.facets">
+            <h4 ng-click="collapsed = !collapsed">
+                <i class="fa" ng-class="{'fa-caret-right': collapsed, 'fa-caret-down': !collapsed}"></i>
+                {{ name | pluralize:facet.facetCount(facetSet) }}
+            </h4>
+
+            <div class="list-group" ng-hide="collapsed">
+                <a class="list-group-item"
+                    blur-on-click
+                    ng-class="{active: info.selected}"
+                    ng-click="info.selected = !info.selected"
+                    ng-repeat="info in facetSet | mappingToArray | orderBy:'count':true">
+                    <span class="badge">{{info.count}}</span>
+                    <span>{{info.$key}}</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
